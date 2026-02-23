@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="First post in the garden.">
-  <title>Hello world</title>
+  <title>hello world</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@300;400&display=swap">
@@ -18,33 +18,12 @@
 
   <article>
     <header>
-      <span class="date">2026-02-22</span>
       <h1>hello world</h1>
-      <span class="versions"><span class="version active" data-v="current">current</span> &middot; <span class="version" data-v="353e4b9">353e4b9</span></span>
+      <span class="versions">new</span>
     </header>
 
-    <div class="version-body active" data-v="current">
     <p>This is the first entry in my digital garden. It's a place for technical notes, personal writing, and things I find interesting.</p>
     <p>More to come.</p>
-    </div>
-
-    <div class="version-body" data-v="353e4b9" hidden>
-    <p>This is the first entry in my digital garden. More to come.</p>
-    </div>
   </article>
-<script>
-document.querySelectorAll('.version').forEach(v => {
-  v.addEventListener('click', () => {
-    const id = v.dataset.v;
-    document.querySelectorAll('.version-body').forEach(b => {
-      b.hidden = b.dataset.v !== id;
-      b.classList.toggle('active', b.dataset.v === id);
-    });
-    document.querySelectorAll('.version').forEach(s => {
-      s.classList.toggle('active', s.dataset.v === id);
-    });
-  });
-});
-</script>
 </body>
 </html>

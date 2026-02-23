@@ -124,21 +124,14 @@ article header {
   margin-bottom: 2rem;
 }
 
-article .date {
-  color: #6b7080;
-  font-size: 0.85rem;
-}
-
 .versions {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #6b7080;
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
 }
 
 .version {
-  font-family: monospace;
-  font-size: 0.7rem;
   cursor: pointer;
 }
 
