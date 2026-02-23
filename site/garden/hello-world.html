@@ -19,11 +19,32 @@
   <article>
     <header>
       <h1>hello world</h1>
-      <span class="versions">new</span>
+      <span class="versions"><span class="version active" data-v="current">feb 23 11am</span> &middot; <span class="version" data-v="8eb84e9">feb 23 11am</span></span>
     </header>
 
+    <div class="version-body active" data-v="current">
+    <p>This is the first entry in my digital garden. It's a place for technical notes, personal writing, and things I find interesting.</p>
+    <p>More to come. This garden grows slowly, and that's the point.</p>
+    </div>
+
+    <div class="version-body" data-v="8eb84e9" hidden>
     <p>This is the first entry in my digital garden. It's a place for technical notes, personal writing, and things I find interesting.</p>
     <p>More to come.</p>
+    </div>
   </article>
+<script>
+document.querySelectorAll('.version').forEach(v => {
+  v.addEventListener('click', () => {
+    const id = v.dataset.v;
+    document.querySelectorAll('.version-body').forEach(b => {
+      b.hidden = b.dataset.v !== id;
+      b.classList.toggle('active', b.dataset.v === id);
+    });
+    document.querySelectorAll('.version').forEach(s => {
+      s.classList.toggle('active', s.dataset.v === id);
+    });
+  });
+});
+</script>
 </body>
 </html>
