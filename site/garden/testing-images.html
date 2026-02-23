@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Testing how images render on the site.">
+  <title>testing images</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@300;400&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav>
+    <a href="/">posts</a>
+    <a href="/about.html">about</a>
+  </nav>
+
+  <article>
+    <header>
+      <span class="date">2026-02-23</span>
+      <h1>testing images</h1>
+      <span class="versions">v. current</span>
+    </header>
+
+    <p>Checking how PNG and SVG images render against the steel grey background.</p>
+
+    <h2>png</h2>
+    <p>A generated gradient — radial vignette from cool center to warm edge. This is a raster image at 400x300 pixels.</p>
+    <img src="../assets/gradient.png" alt="Radial gradient in steel grey tones">
+
+    <h2>svg</h2>
+    <p>A simple geometric pattern — concentric circles with crosshairs. This is a vector image that scales to any size.</p>
+    <img src="../assets/test-pattern.svg" alt="Concentric circles with crosshairs">
+
+    <p>Both images should sit comfortably within the content column and never overflow it.</p>
+  </article>
+</body>
+</html>

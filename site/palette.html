@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pick a background</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Display:wght@500&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1a1d23;
+      background: #fff;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: "Inter Display", "Inter", sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro {
+      color: #6b7080;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .swatch {
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .swatch:hover {
+      border-color: #2c5f8a;
+    }
+
+    .swatch.selected {
+      border-color: #1a3d5c;
+    }
+
+    .swatch-label {
+      font-size: 0.75rem;
+      font-family: monospace;
+      color: #6b7080;
+      margin-bottom: 0.75rem;
+    }
+
+    .swatch h2 {
+      font-family: "Inter Display", "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .swatch p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .swatch a {
+      color: #2c5f8a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .swatch .muted {
+      color: #6b7080;
+      font-size: 0.8rem;
+    }
+
+    #preview-section {
+      display: none;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+    }
+
+    #preview-section nav {
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #d4d5da;
+    }
+
+    #preview-section nav a {
+      text-decoration: none;
+      color: #1a1d23;
+      margin-right: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    #preview-section h2 {
+      font-family: "Inter Display", "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    #preview-section p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    #preview-section a {
+      color: #2c5f8a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    #preview-section .date {
+      color: #6b7080;
+      font-size: 0.85rem;
+    }
+
+    #selected-hex {
+      font-family: monospace;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #6b7080;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pick a background</h1>
+  <p class="intro">Click any swatch to see a full preview below. Each one is a steel grey — the blue undertone varies from almost nothing to faintly perceptible.</p>
+
+  <div class="grid" id="grid"></div>
+
+  <div id="selected-hex"></div>
+
+  <div id="preview-section">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Garden</a>
+      <a href="#">About</a>
+      <a href="#">Links</a>
+    </nav>
+
+    <h2>Welcome</h2>
+    <p>This is my digital garden. A place for technical notes, personal writing, and things I find interesting. It grows slowly.</p>
+
+    <h3 style="font-family: 'Inter Display', 'Inter', sans-serif; font-weight: 500; font-size: 1.4rem; letter-spacing: -0.02em; margin-top: 2rem; margin-bottom: 0.5rem;">Garden</h3>
+
+    <p><a href="#">Hello world</a> <span class="date">2026-02-22</span></p>
+    <p><a href="#">On choosing colors</a> <span class="date">2026-02-23</span></p>
+    <p><a href="#">Notes on the indie web</a> <span class="date">2026-02-24</span></p>
+
+    <p style="margin-top: 2rem;">Here is some body text to get a feel for longer reading. The background should disappear — you shouldn't notice it. It should feel like looking at an overcast sky through a window while you read. The text is what matters. The background just sets the temperature of the room.</p>
+
+    <p style="color: #6b7080; font-size: 0.8rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d4d5da;">Hand-built with HTML and CSS.</p>
+  </div>
+
+  <script>
+    const palettes = [
+      { hex: "#e8e9eb", label: "Pure steel", desc: "Neutral grey, no blue. The control." },
+      { hex: "#e7e8eb", label: "Steel + ghost", desc: "B channel 1 higher. Blue is imaginary." },
+      { hex: "#e8e9ed", label: "Steel + breath", desc: "Current. B is 4 above R." },
+      { hex: "#e6e7ec", label: "Steel + whisper", desc: "Slightly darker, blue just barely there." },
+      { hex: "#e5e7ec", label: "Overcast", desc: "A notch more blue. Like a winter sky." },
+      { hex: "#e4e6ec", label: "Overcast deep", desc: "Blue is present but still deniable." },
+      { hex: "#e3e5eb", label: "Slate mist", desc: "Darker steel. Blue-grey territory." },
+      { hex: "#e7e9ee", label: "Pale frost", desc: "Lighter, cooler. Clean and airy." },
+      { hex: "#e5e6eb", label: "Gunmetal light", desc: "Mid-tone steel with a blue edge." },
+      { hex: "#e9eaee", label: "Silver haze", desc: "Very light. Blue is a rumor." },
+      { hex: "#e2e4ea", label: "Storm glass", desc: "The darkest option. Moody steel." },
+      { hex: "#e6e8ed", label: "Quiet blue", desc: "The blue is there if you look for it." },
+    ];
+
+    const grid = document.getElementById("grid");
+    const preview = document.getElementById("preview-section");
+    const hexDisplay = document.getElementById("selected-hex");
+
+    palettes.forEach((p, i) => {
+      const div = document.createElement("div");
+      div.className = "swatch";
+      div.style.background = p.hex;
+      div.innerHTML = `
+        <div class="swatch-label">${p.hex}</div>
+        <h2>${p.label}</h2>
+        <p>${p.desc}</p>
+        <p>This is body text with a <a href="#">link</a> to check contrast.</p>
+        <p class="muted">2026-02-23 — muted text sample</p>
+      `;
+      div.addEventListener("click", () => {
+        document.querySelectorAll(".swatch").forEach(s => s.classList.remove("selected"));
+        div.classList.add("selected");
+        preview.style.display = "block";
+        preview.style.background = p.hex;
+        hexDisplay.textContent = `Selected: ${p.hex} — ${p.label}`;
+        preview.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      grid.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
+</script>
+</body>
+</html>
