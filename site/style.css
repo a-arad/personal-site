@@ -136,14 +136,17 @@ article .date {
   margin-top: 0.25rem;
 }
 
-.versions a {
-  color: #6b7080;
+.version {
   font-family: monospace;
   font-size: 0.7rem;
-  text-decoration: none;
+  cursor: pointer;
 }
 
-.versions a:hover {
+.version.active {
+  color: #1a1d23;
+}
+
+.version:not(.active):hover {
   text-decoration: underline;
 }
 
