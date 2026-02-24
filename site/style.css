@@ -122,21 +122,17 @@ nav a:hover {
 /* Article */
 article header {
   margin-bottom: 2rem;
-  padding-left: 1.1rem;
 }
 
 article header h1 {
   position: relative;
+  padding-left: 1.1rem;
 }
 
 article header h1::before {
-  content: "";
+  content: "|";
   position: absolute;
-  left: -1.1rem;
-  top: 0;
-  bottom: 0;
-  width: 1.5px;
-  background: #1a1d23;
+  left: 0;
 }
 
 .versions {
