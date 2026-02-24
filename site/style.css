@@ -127,9 +127,13 @@ article header {
 }
 
 article header::before {
-  content: "|";
+  content: "";
   position: absolute;
   left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: #1a1d23;
 }
 
 .versions {
