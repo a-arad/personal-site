@@ -133,6 +133,12 @@ article header {
 }
 
 .version {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
 }
 
@@ -142,6 +148,12 @@ article header {
 
 .version:not(.active):hover {
   text-decoration: underline;
+}
+
+.version:focus-visible {
+  outline: 1px solid #6b7080;
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 blockquote {
