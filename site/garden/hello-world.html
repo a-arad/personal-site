@@ -19,34 +19,10 @@
   <article>
     <header>
       <h1>hello world</h1>
-      <span class="versions" aria-label="post versions">version <button class="version" type="button" data-v="0f06ee4" aria-controls="version-0f06ee4" aria-pressed="false">1</button> &middot; <button class="version active" type="button" data-v="a62282c" aria-controls="version-a62282c" aria-pressed="true">2</button></span>
     </header>
 
-    <div id="version-a62282c" class="version-body active" data-v="a62282c">
     <p>This is the first entry in my digital garden.</p>
     <p>More to come.</p>
-    </div>
-
-    <div id="version-0f06ee4" class="version-body" data-v="0f06ee4" hidden>
-    <p>This is the first entry in my digital garden. It's a place for technical notes, personal writing, and things I find interesting.</p>
-    <p>More to come.</p>
-    </div>
   </article>
-<script>
-document.querySelectorAll('.version').forEach(v => {
-  v.addEventListener('click', () => {
-    const id = v.dataset.v;
-    document.querySelectorAll('.version-body').forEach(b => {
-      b.hidden = b.dataset.v !== id;
-      b.classList.toggle('active', b.dataset.v === id);
-    });
-    document.querySelectorAll('.version').forEach(s => {
-      const isActive = s.dataset.v === id;
-      s.classList.toggle('active', isActive);
-      s.setAttribute('aria-pressed', String(isActive));
-    });
-  });
-});
-</script>
 </body>
 </html>
